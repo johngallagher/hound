@@ -10,7 +10,6 @@ defmodule Hound.Browser.ChromeHeadless do
   end
 
   def chrome_binary do
-    raise System.get_env("GOOGLE_CHROME_SHIM")
     case System.get_env("GOOGLE_CHROME_SHIM") do
       nil -> %{}
       path -> %{ "binary" => path }
