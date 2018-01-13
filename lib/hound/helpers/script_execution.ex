@@ -18,7 +18,7 @@ defmodule Hound.Helpers.ScriptExecution do
   def execute_script(script_function, function_args \\ []) do
     session_id = Hound.current_session_id
     make_req(:post,
-      "session/#{session_id}/execute",
+      "session/#{session_id}/execute/sync",
       %{script: script_function, args: function_args}
     )
   end
@@ -49,7 +49,7 @@ defmodule Hound.Helpers.ScriptExecution do
   def execute_script_async(script_function, function_args \\ []) do
     session_id = Hound.current_session_id
     make_req(:post,
-      "session/#{session_id}/execute_async",
+      "session/#{session_id}/execute/async",
       %{script: script_function, args: function_args}
     )
   end

@@ -15,7 +15,8 @@ IO.puts "Stopping Hound and restarting with options for test suite..."
 :ok = Application.stop(:hound)
 Hound.Supervisor.start_link(
   driver: System.get_env("WEBDRIVER"),
-  app_port: 9090
+  app_port: 9090,
+  path_prefix: ""
 )
 
 System.at_exit fn(_exit_status) ->
